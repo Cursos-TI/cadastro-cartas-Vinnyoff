@@ -12,6 +12,8 @@ int main()
     float area1;
     float pib1;
     int npt1 = 0;
+    float densidade1;
+    float pib_per_capita1;
 
     char estado2;
     char codigo2[4];
@@ -20,6 +22,9 @@ int main()
     float area2;
     float pib2;
     int npt2;
+    float densidade2;
+    float pib_per_capita2;
+    
 
         // Apresentação do programa e entrada de dados
     printf("Bem vindo ao Super Trunfo dos Estados Brasileiros!\n\n");
@@ -56,11 +61,20 @@ int main()
     printf("Digite o codigo da carta: (A letra do estado junto com um número de 01 a 04)");
     scanf("%s", codigo2);
 
+        // Cálculo dos atributos derivados para a primeira cidade
+    densidade1 = população1 / area1;
+    pib_per_capita1 = (pib1 * 1000000000.0) /  população1; // Convertendo PIB de bilhões para reais
+
+        // Cálculo dos atributos derivados para a segunda cidade
+    densidade2 = população2 / area2;
+    pib_per_capita2 = (pib2 * 1000000000.0) / população2;
+
+
         // Exibição dos dados das cidades cadastradas
     printf("\nCartas cadastradas com sucesso!\n");
-    printf("Carta 1:\n Estado: %c\n Codigo: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Número de pontos turísticos: %d\n",
-           estado1, codigo1, nome1, população1, area1, pib1, npt1);
-    printf("Carta 2:\n Estado: %c\n Codigo: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Número de pontos turísticos: %d\n",
-           estado2, codigo2, nome2, população2, area2, pib2, npt2);
+    printf("Carta 1:\n Estado: %c\n Codigo: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Número de pontos turísticos: %d\n Densidade populacional: %.2f habitantes/km²\n PIB per capita: %.2f reais\n",
+           estado1, codigo1, nome1, população1, area1, pib1, npt1, densidade1, pib_per_capita1);
+    printf("Carta 2:\n Estado: %c\n Codigo: %s\n Nome da cidade: %s\n População: %d\n Área: %.2f km²\n PIB: %.2f bilhões de reais\n Número de pontos turísticos: %d\n Densidade populacional: %.2f habitantes/km²\n PIB per capita: %.2f reais\n",
+           estado2, codigo2, nome2, população2, area2, pib2, npt2, densidade2, pib_per_capita2);
     return 0;
 }
